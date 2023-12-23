@@ -1,23 +1,5 @@
-How to Launch: Use the command node server.js on the command line after navigating to the folder
-in which the server.js file is located. For this submission it should be the project folder. This should launch the server. To see the website, navigate to http://localhost:4131/. This will bring you to the homepage of the site. 
 
-Information needed to test: To test much of the main functionality(generating/deleting/editing posts),
-an account will need to be created. To do this, simply click the "User" symbol which will bring you to the signin 
-page. Upon reaching the signin page, click the first white link which is described to lead to a sign up page. Input
-a username and password and press sign up, upon which you have an account in the database and can now generate/edit/delete
-posts. Specifically, editing and deleting posts that your account has generated. Users that 
-are not signed in can still browse posts as well as use the feature to sort them in their desired way. However, without
-an account posts cannot actually be interacted with. Note that attempting to access the make post/your posts page without
-an account will also lead back to the signin page. 
-
-// some sample accounts to try signin with(not necessarily needed, can also just signup with other accounts then signout to test sign in)
-Username: testaccount1 password: testaccount1password
-Username: testaccount2 password: testaccount2password
-Username: testaccount3 password: testaccount3password
-
-Important Urls: These are mostly urls that will send get requests to the main pages of the server
-
-What features were implemented:
+Some features:
 
 User Accounts: User signin/signup was implemented with express-session. The bcrypt software library was used for secure hashed passwords. Users have several exclusive features available to them, including posting, as well as liking, editing, and deleting posts. Much of the functionality on the site needs an account to access, although posts can still be viewed without an account. Login status is tracked with the sidebar, which displays the username if someone is logged in and displays a signin button if someone is logged out.
 
@@ -57,51 +39,5 @@ ANY USER CAN ACCESS:
 /
 /signin
 /signup
-
-
-
-
-Attributions: 
-
-FormData was used based on mdn web docs https://developer.mozilla.org/en-US/docs/Web/API/FormData 
-
-Referer was learned about from mdn web docs https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer 
-
-Icons for logout, user, etc. from font-awesome https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css  https://fontawesome.com/ 
-
-mysql coalesce https://www.w3schools.com/sql/func_mysql_coalesce.asp 
-
-
-Some Design Decisions:
-
-- Post likes/generation. There had to be a decision on whether post likes/post edits/post generation is updated for all users or just the user who made the action on that window. The decision made was the latter. It would be somewhat disconcerting for other users reading posts to suddenly have their post shift on the page because of the action of another. 
-
-- Signin/Signup: There isn't really a signup button accessible from the main page, and the nav bar isn't accessible from the 
-signup/signin/signout pages. For the former, the signup button was omitted for a couple of reasons. One being the main page would 
-be cleaner without it, as the sign up/sign in messages would be very similar. The other is to prioritize users who already have an account. For those who want to make accounts, the signup button is still accessible, just from the signin page. The nav bar not being
-accessible from the signup/signin page is also intentional to keep those pages separate from the rest of the site. Something similar
-can be seen on sites like amazon. The signup/signin is kept clean and separate from the other pages, while still leaving an avenue
-to head back to the home page if needed. 
-
-- Accessing previous page urls for queries: This was mostly a choice between using sessions to store urls and using referer. 
-The use of referer was chosen because it was sufficient enough for the situation, as the endpoints that needed it were never going 
-to be simply typed in on the url(the weakness of referer) due to the fact that they are only used when something changes in a 
-dropdown.
-
-- Reloading: This relates to the first item about posts. There are a few points where reloads could have been implemented(post order change, other users liking, editing, etc.). The choice here was to keep users as separate as possible, but when the user is altering
-something themselves they should see the effect immediately. So users changing post order, liking, editing, deleting posts etc. is 
-seen immediately on the page without reload. Any other effects that might change data on other users screens are kept to being invisible
-until a reload. 
-
-- Post vs Get vs Put: When it came to fetch requests, most were because either update or select queries were needed from the database.
-With items that just needed to rearrange elements with a different select, like with the dropdowns, the GET request was initially thought
-about but rejected because an endpoint being user visible is unwanted. A PUT request wasn't really needed here because it was not an update, so a POST request was used as an alternative, as it fit others less and in a way data is being "posted" in another format, though no INSERT is used. Either put or post could be used for editing/liking posts in terms of behavior, but post was preferred overall. 
-
-
-- Liking own Posts: It was decided for users to be able to like their own posts. It seems pretty standard for microblogging sites. 
-
-- Trending posts box: An addition to the front page. The main decision here is another reload choice. The choice was not to reload upon
-changes in the trending posts(3 most liked posts) to keep with the principle of users not being affected by others activity unrelated to them. So to see trending posts update(if it has) a page reload is needed. 
-
 
 
