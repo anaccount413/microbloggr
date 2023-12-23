@@ -1,15 +1,6 @@
 const mysql = require(`mysql-await`); 
 
 
-var connPool = mysql.createPool({
-  connectionLimit: 5, 
-  host: "cse-mysql-classes-01.cse.umn.edu",// this will work
-  user: "C4131F23U144",
-  database: "C4131F23U144",
-  password: "moha_213_232"
-});
-
-
 // this will take in a username and password 
 // and add the user to the database
 async function addUser(info){
