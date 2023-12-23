@@ -1,0 +1,21 @@
+nav.sidebar
+    ul
+        li.link.title
+            a(href='/') Bloggr
+        
+        if active.activity 
+            li.link.user 
+                a(href = '/account') 
+                    i.fa.fa-fw.fa-user
+                    |  #{active.username}
+            li.link
+                a(href='/signout')
+                    i.fa.fa-fw.fa-sign-out
+                    |  Sign out
+        else
+            li.link.user
+                a(href='/signin')
+                    i.fa.fa-fw.fa-user
+                    |   Sign In
+            
+        

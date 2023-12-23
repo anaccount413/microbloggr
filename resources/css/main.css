@@ -1,0 +1,601 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700&family=MuseoModerno:wght@500&display=swap');
+
+body{
+    font-family:Helvetica;
+    background-color: #26264A ;
+    margin:0;
+}
+
+/* sidebar and placeholder on right/left*/
+.sidecontainer, .lastcontainer{
+    float:left;
+    width:27vw;
+    height:100vh;
+}
+
+.sidecontainer{
+    border-right-style:solid;
+    border-color:#134b5f;
+    border-width: 0.01em;
+}
+
+
+/* container post content */
+.postcontainer{
+    border-right-style:solid;
+    border-color:#134b5f;
+    border-width: 0.01em;
+    width:44vw;
+    float:left;
+    height:100vh;
+}
+
+
+/* sidebar content will be on the right of the column*/
+.sidebar > ul{
+    float: right; 
+}
+
+/* color of links in sidebar */
+nav.sidebar li > a{
+    color:white;
+}
+
+/* spacing for list items in sidebar*/
+nav.sidebar li {
+    margin-bottom:1em;
+    margin:1em;
+}
+
+nav.sidebar > ul > li.link.title{
+    font-family: 'MuseoModerno';
+    font-size:1.7em;
+    margin-bottom: 0.5em;
+    margin-top: 0; 
+    margin-right:2.5em;;
+}
+
+/* links on top */
+.links{
+    border-bottom-style:solid;
+    border-color:#134b5f;
+    border-width:0.1em;
+    width:100%;
+}
+/* put the links on top bar on one line*/
+.links > ul{
+    display: flex; 
+    justify-content: left;
+    font-weight:bold;
+    font-size:1.2em;
+    margin-bottom:0.5em;
+} 
+
+
+/* get rid of the bullet points*/
+nav.links li, nav.sidebar li{
+    list-style-type: none; 
+    
+} 
+
+/* get rid of the text underlining in links for sidebar and top bar navigation */
+nav.links li > a, nav.sidebar li > a{
+    font-size: 1em;
+    text-decoration: none; 
+}
+
+
+
+/* navigation bar items are on one line and have no bullet points */
+nav.links > ul > li.link{
+    text-align: center;
+    width: 200px;
+    border: 5px black;
+    padding: 0px;
+    border-radius: 15em; 
+    margin-bottom: 0px;
+    margin-top: 5px;
+    list-style-type: none;
+    
+}
+
+/* Gray for top navigation bar to distinguish inactive items*/
+nav.links li > a{
+    color:gray;
+}
+
+/* active nav bar page will be colored white while others are gray*/
+li.link.active > a{
+    color:white;
+    padding-bottom:0.5em;
+    border-bottom-style: solid;
+    border-bottom-color: lightblue;
+}
+
+
+/* container for all of the posts */
+.postarea{
+    border-width:0.1em;
+    text-align: center; 
+    flex:  0.8; 
+}
+
+/* individual posts */
+.postarea > *{
+    display:flex;
+    justify-content: center; 
+    align-items: center;
+   
+}
+
+/* styling the actual box the posts are in */
+.actualpost{
+    border-style:solid;
+    background-color:white;
+    border-radius:1em;
+    width: 95%;
+    margin-top: 0.3em;
+    margin-bottom:0.3em;
+}
+
+.username{
+    border-bottom-style:solid;
+    text-align:left;
+    padding: 0.5em;
+}
+
+.actualpost > p{
+    text-align:left;
+    padding:0.5em;
+    margin-left:0.3em;
+}
+
+/* this is for the textbox that shows up for editing*/
+.actualpost > .tempform{
+    height: 5em;
+    margin:0;
+    padding:0;
+}
+
+.tempform > form{
+    margin-top:0.5em;
+    width: 100%;
+}
+
+.tempform > form > textarea{
+    width:98.5%;
+    margin-right:0.2em;
+    margin-left:0.2em;
+    border-style: none;
+    height: 3.3em;
+    font-family: Helvetica;
+}
+
+.tempform > form > div > input{
+    margin-top:0.1em;
+    border-radius:1.5em;
+    border-width: 0.1em;
+    border-style:solid;
+    background-color:white;
+    color:black;
+    width:20%;
+    height:1.8em;
+    margin-bottom:1em;
+    
+}
+
+
+
+
+
+.likecount{
+    margin-left:0.7em;
+    text-align:center;
+    margin-bottom:0.5em;
+    border-style:solid;
+    border-radius:1.5em;
+    border-color:#134b5f;
+    border-width: 0.01em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    width: 15%;
+    float:left;
+}
+
+/* like/edit/delete button styling */
+
+.likebutton{
+    float:right;
+    margin-right:0.7em;
+    text-align:center;
+    margin-bottom:0.5em;
+    border-style:solid;
+    border-radius:1.5em;
+    border-color:#134b5f;
+    border-width: 0.01em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    width: 15%;
+    font-size:1em;
+    background-color: white;
+}
+
+.editbutton{
+    float:right;
+    margin-right:0.7em;
+    text-align:center;
+    margin-bottom:0.5em;
+    border-style:solid;
+    border-radius:1.5em;
+    border-color:#134b5f;
+    border-width: 0.01em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    width: 15%;
+    font-size:1em;
+    background-color: white;
+}
+
+.deletebutton{
+    float:right;
+    margin-right:0.7em;
+    text-align:center;
+    margin-bottom:0.5em;
+    border-style:solid;
+    border-radius:1.5em;
+    border-color:#134b5f;
+    border-width: 0.01em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    width: 15%;
+    font-size:1em;
+    background-color: white;
+}
+
+.pagenumber a{
+    margin:1em;
+    color:white;
+    text-underline-offset: 0.2em;
+}
+
+/* sorting posts select dropdown style*/
+.sort{
+    align-items:right;
+    text-align:right;
+    margin-left:1em;
+    margin-right:1em;
+    margin-top: 0.5em;
+}
+
+.sort select{
+    box-sizing: border-box;
+    width: 10em;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+
+/* trending posts box */
+.trendbox {
+    border-style:none;
+    border-radius:0.2em;
+    background-color: #333352;
+    margin: 1em;
+    margin-top:2em;
+    width: 70%;
+}
+
+.trendtitle{
+    font-weight:bold;
+    font-size: 1.1em;
+    color:white;
+    padding:0.5em;
+}
+
+
+.trendInfo{
+    color:white;
+}
+
+.trendInfo div{
+    font-size:0.8em;
+    border-top-style:solid;
+    border-color:black;
+    padding-left: 0.5em;
+    padding-top: 1em;
+    padding-bottom:1em;
+}
+
+/* styling the signin and signup pages, only major element here is the form*/
+body.signin, body.signup{
+    text-align:center;
+}
+
+
+/* center all items on pages */
+body.signin > *, body.signup > *{
+    justify-content: center;
+    align-content: center;
+    margin:0; 
+}
+
+/* making sure no margins for headers*/
+div.headings h1, h2{
+    margin:0;
+}
+
+/* style the headers */
+h1.logo{
+    font-family: 'MuseoModerno';
+    font-weight:normal;
+    font-size:1.7em;
+    color:white;
+    margin-top:1em;
+}
+
+div.headings h1{
+    margin-top:1em;
+}
+
+div.headings h2{
+    color:white;
+    font-family: Helvetica;
+    font-weight:normal;
+    margin-top:0.5em;
+    margin-bottom:0.8em;
+}
+
+/* style the container for the form */
+div.formcontainer{
+    padding:0;
+    margin:0;
+    text-align:left;
+    justify-content:center;
+    display:flex;
+}
+
+/* style the form itself */
+div.formcontainer form{
+    background-color:#d8d8d8;
+    border-radius:1em;
+    padding:2em;
+    border-style: solid; 
+    width:22%;
+}
+
+/* style div containers in the form*/
+form div.field{
+    font-size:0.8em;
+    margin:1em;
+    margin-left:0;
+}
+
+/* style the input boxes */
+form div.field input{
+    padding:1em;
+    margin-top:0.1em;
+    border-radius:0.5em;
+    border-width: 0.1em;
+    border-color: lightgray;
+    border-style:solid;
+    width:80%;
+}
+
+/* align the labels "username", etc. correctly*/
+form div.field label{
+    padding-left:0.3em;
+}
+
+form .invalid_container{
+    border-style:solid;
+    margin-top:1em;
+    border-radius:0.5em;
+    background-color:tan;
+    border-color:tan;
+    text-align:center;
+}
+
+.invalid_container a{
+    text-underline-offset: 0.2em;
+}
+
+/* signup/signin link container style*/
+div.signuplink, div.signinlink{
+    display:flex;
+    margin-top:1em;
+    justify-content: center;;
+}
+
+div.signuplink a, div.signinlink a{
+    text-underline-offset: 0.2em;
+    color:white;
+}
+
+
+/* signup/signin links are forms where the submit button sends you to link */
+/* style the forms */
+div.signuplink form, div.signinlink form{
+    
+    width: 20%;
+}
+
+/* style signup/signin button */
+body.signin > div.signuplink button, body.signup > div.signinlink button{
+    border-style:solid;
+    padding: 1em;
+    border-radius:1.5em;
+    width: 100%;
+    font-size:0.9em;
+}
+
+.formcontainer li{
+    font-size: 0.75em;
+
+}
+
+.formcontainer ul{
+    margin-bottom:2em;
+    padding:0;
+}
+/* style for submit buttons */
+form div.submitfield{
+    text-align: center;
+    margin-top:1em;
+    padding-top:1em;
+}
+
+form div.submitfield input[type="submit"]{
+    padding:1em;
+    margin-top:0.1em;
+    border-radius:1.5em;
+    border-width: 0.1em;
+    border-color: lightgray;
+    border-style:solid;
+    background-color:#1e81b0;
+    color:white;
+    width:50%;
+}
+
+/* styling for generate post page */
+body.generatepost{
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+}
+
+body.generatepost .links{
+    display:flex;
+    text-align:center;
+    justify-content:center;
+    align-items:center;
+}
+
+.generatecontainer {
+    display:flex;
+    text-align:center;
+    justify-content:center;
+}
+
+.generatecontainer >  form{
+    padding-right:2em;
+    width:50%;
+}
+
+.generatecontainer >  form > *{
+    margin:1em;
+    
+}
+
+.generatecontainer > form > textarea{
+    width: 100%;
+    height: 7em; /* Adjust this value to make the textarea taller */
+    resize: vertical;
+    padding: 0.5em;
+    font-size: 1em;
+    font-family:Helvetica;
+    border-radius: 0.5em;
+    border-style: solid;
+    border-color: lightgray;
+    margin-bottom: 1em;
+}
+
+.generatepost h1{
+    font-weight:normal;
+    font-family:Helvetica; 
+    color:white;
+}
+
+/* css for the signout page and some for the account page */
+
+.signout, .account{
+    justify-content:center;
+    text-align:center;
+}
+
+.signout > div.signoutcontainer, .account > div.accountcontainer{
+    border-style:solid;
+    background-color: white;
+    
+    border-radius:1em;
+    padding-right:2em;
+    padding-left:2em;
+    padding-bottom:10em;
+    padding-top:1em;
+}
+
+/* position of the signout message box */
+div.signoutcontainer{
+    width:40%;
+    margin-left: 27.5%;
+    margin-top:2vw;
+}
+
+.account > div.accountcontainer{
+    margin:10em;
+}
+
+.signout > div.signoutcontainer > .bodytext{
+    margin-top:1em;
+    padding-top:1em;
+}
+.signout a{
+    text-decoration: none;
+    color: #CF9FFF;
+}
+
+/* more css for account stats page */
+
+.account > div.accountcontainer{
+    width:40%;
+    padding:0;
+    margin-left: 29%;
+    margin-top:4vh;
+    justify-content: center;
+
+}
+
+div.accountcontainer > h1 {
+    font-size:1.5em;
+    font-weight:normal;
+    font-family:Helvetica;
+}
+
+div.accountcontainer > p.numlikes{
+    margin:2em; 
+    margin-top:1.5em;
+    margin-bottom:1.5em;
+    text-align:left;
+}
+
+div.signoutbutton, div.homepagebutton{
+    padding: 0.8em;
+    font-size:0.9em;
+    margin:0;
+}
+
+div.signoutbutton a, div.homepagebutton a{
+    text-decoration: none;
+}
+
+
+/* some shared css for the non-navbar signin/signup pages */
+/* styling for the link to head back to the home page if one decides not to use an account*/
+
+div.backhome{
+    margin-top:1em;
+}
+
+div.backhome a{
+    text-underline-offset: 0.2em;
+    color:white;
+}
+
+/* 404 file not found css changes */
+
+.notfound{
+    margin-left:0.5em;
+    margin-top:1em;
+    color:white;
+    font-family:Helvetica;
+}

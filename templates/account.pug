@@ -1,0 +1,27 @@
+doctype html
+html(lang = 'en')
+    head
+        include links.pug
+        title  Account
+    // very similar to signup page, but has enough differences in enough places that
+    // includes to avoid repetition isn't really viable
+    // only one include for the actual form elements (username/password)
+    // not really worth it for the 3 line headers
+    body.account
+        div.headings
+            h1.logo Bloggr 
+            h2.otherheader Account Statistics
+        
+        div.accountcontainer
+            p.numlikes 
+                b Post Likes: 
+                | #{parameter.post_likes}
+            div.homepagebutton
+                a(href='/')
+                    i.fa.fa-fw.fa-home
+                    |  Home
+            div.signoutbutton
+                a(href='/signout')
+                    i.fa.fa-fw.fa-sign-out
+                    |  Sign out
+        

@@ -1,0 +1,18 @@
+doctype html
+html(lang = 'en')
+    head
+        include links.pug 
+        title Signed Out
+    // very similar to signup page, but has enough differences in enough places that
+    // includes to avoid repetition isn't really viable
+    // only one include for the actual form elements (username/password)
+    // not really worth it for the 3 line headers
+    body.signout
+        div.headings
+            h1.logo Bloggr 
+            h2.otherheader Signed Out Succesfully 
+        div.signoutcontainer
+            div.bodytext
+                | You have successfuly signed out! Click 
+                a(href='/')  here 
+                |  to go back to the home page 

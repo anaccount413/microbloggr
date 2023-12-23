@@ -1,0 +1,14 @@
+doctype html
+html(lang = 'en')
+    head
+       include links.pug 
+       title Make Post
+
+    body.generatepost  
+        include navbar.pug
+        h1 Generate a Post
+        div.generatecontainer
+            form(action='/submitpost' method='post')
+                textarea(name='post_content' maxlength='100' placeholder='Write your post here...')
+                input(type='submit' value='Send Post')
+

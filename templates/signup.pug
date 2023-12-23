@@ -1,0 +1,32 @@
+doctype html
+html(lang = 'en')
+    head
+        include links.pug 
+        script(type='text/javascript' src='../js/users.js')
+        title Sign Up
+    // very similar to signup page, but has enough differences in enough places that
+    // includes to avoid repetition isn't really viable
+    // only one include for the actual form elements (username/password)
+    // not really worth it for the 3 line headers
+    body.signup 
+        div.headings
+            h1.logo Bloggr 
+            h2.otherheader Welcome! Sign up here
+        div.formcontainer
+            form(action='/signup' method='POST')
+                ul  
+                    li Passwords and Usernames must be at least 8 characters long
+                include signelems.pug
+                div.submitfield 
+                    input(type='submit' value="Sign up")
+                if params.attempt
+                    div.invalid_container
+                        p.invalid_attempt There is already an account with this username. If you own this account,  
+                            a(href='/signup') sign in here!
+        
+        div.signinlink 
+            a(href='/signin') If you already have a Bloggr account, sign in here!
+            //- form(action='/signin')
+            //-     button(type='submit') Already have an account? Sign in here
+        div.backhome 
+            a(href='/') Just want to browse posts? Click here to go back to the home page

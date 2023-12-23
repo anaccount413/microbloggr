@@ -1,0 +1,28 @@
+doctype html
+html(lang = 'en')
+    head
+        include links.pug 
+        script(type='text/javascript' src='../js/users.js')
+        title Sign In
+    // the signin page does not have the 3 column layout
+    body.signin 
+        div.headings
+            h1.logo Bloggr 
+            h2.otherheader Sign In
+        div.formcontainer
+            form(action='/signin' method='POST')
+                include signelems.pug
+                div.submitfield 
+                    input(type='submit' value="Sign in")
+                if params.attempt
+                    div.invalid_container
+                        p.invalid_attempt This doesn't seem to be a valid account. If you're new to Bloggr, 
+                            a(href='/signup') sign up here!
+        
+        div.signuplink 
+            a(href='/signup') If you're new to Bloggr, sign up here!
+            //- form(action='/signup')
+            //-     button(type='submit') New to Bloggr? Sign up here
+        div.backhome 
+            a(href='/') Just want to browse posts? Click here to go back to the home page
+

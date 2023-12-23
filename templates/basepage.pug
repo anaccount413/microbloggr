@@ -1,0 +1,65 @@
+doctype html
+html(lang = 'en')
+    head
+        include links.pug 
+        script(type='text/javascript' src='../js/posts.js')
+        title Bloggr
+    // added classes for elements that have specific css styling needed
+    // 3 column layout
+    // column 1 is side bar with account items (links to user/sign out)
+    // column 2 is the navigation bar (all posts, user posts, other link to account)
+    // column 3 has trending posts box
+    // similar to some other multiblogging sites like tumblr, twitter, etc.
+    body.mainpage 
+        div.sidecontainer
+            include sidebar.pug
+        div.postcontainer
+            include navbar.pug
+            div.sort
+                label(for='sorting')
+                    select.sortingby#sorting(name='sorting') 
+                        option(value='Most Recent') Most Recent
+                        option(value='Likes') Likes
+            div.postarea 
+                - post_count = 0
+                each post in active.posts
+                    - post_count += 1
+                    div(class="samplepost")
+                        div.actualpost
+                            div.username @#{post.username}
+                            p #{post.content}
+                            div.likestuff(id= `post_${post.post_id}`)
+                                div.likecount #{post.likes} 
+                                    if post.likes == 1 
+                                        | like
+                                    else 
+                                        | likes
+                                if(active.activity) 
+                                    button.likebutton(type='button') Like
+                                if(active.activity && post.username == active.username)
+                                    include editdelete.pug
+                div.pagenumber 
+                    if(post_count == 5 || active.current_page > 1)
+                        if(active.current_page > active.final_page)  
+                            if(active.path == "/yourposts" || active.path == "/likeduserposts" || active.path == "/recentuserposts") 
+                                    a(href=`/yourposts?page=${active.final_page}`) Previous 
+                            else 
+                                a(href=`/?page=${active.final_page}`) Previous 
+                        else 
+                            if(active.current_page > 1)
+                                if(active.path == "/yourposts" || active.path == "/likeduserposts" || active.path == "/recentuserposts") 
+                                    a(href=`/yourposts?page=${active.current_page - 1}`) Previous 
+                                else 
+                                    a(href=`/?page=${active.current_page - 1}`) Previous 
+                            if(active.current_page > 1 && active.final_page != active.current_page)
+                                p |
+                            if(active.final_page != active.current_page) 
+                                if(active.path == "/yourposts" || active.path == "/likeduserposts" || active.path == "/recentuserposts") 
+                                    a(href=`/yourposts?page=${active.current_page + 1}`) Next 
+                                else
+                                    a(href=`/?page=${active.current_page + 1}`) Next 
+                    
+        div.lastcontainer 
+            include trendbox.pug
+
+            

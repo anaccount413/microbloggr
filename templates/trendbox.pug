@@ -1,0 +1,12 @@
+div.trendbox
+    div.trendtitle Trending Posts
+    div.trendInfo 
+        -index = 1
+        for post in active.trending
+            div ##{index}  "#{post.content}"...
+            -index = index + 1
+        if index == 1  
+            div More to come
+
+            
+            
